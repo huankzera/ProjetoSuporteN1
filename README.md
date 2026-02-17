@@ -83,4 +83,4 @@ Abra um Pull Request.
 📝 Licença
 Este projeto está sob a licença MIT. Sinta-se livre para usar e modificar para o seu provedor.
 
-Feito com 💙 e ☕ por [Seu Nome]
+Feito com 💙 e ☕ por Matheus Huank
