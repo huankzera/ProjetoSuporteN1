@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;">
+    <title>Wiki Suporte ISP - Master Brasil</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div id="toast" class="toast hidden">✅ Copiado com sucesso!</div>
+
+    <div id="wizardModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🤖 Assistente Virtual</h2>
+                <button id="closeWizard" class="close-btn">&times;</button>
+            </div>
+            <div id="wizardBody" class="modal-body">
+                </div>
+            <div class="modal-footer">
+                <button id="resetWizard" class="secondary-btn">🔄 Reiniciar</button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo-area">
+                <h1>🛡️ Suporte <span class="highlight">ISP</span> <span class="badge">BRASIL</span></h1>
+            </div>
+            <div class="controls">
+                <button id="btnOpenWizard" class="action-btn">🪄 Diagnóstico Mágico</button>
+                <button id="toggleModeBtn" class="icon-btn" title="Modo Escuro">🌙</button>
+                <button id="toggleAdvancedBtn" class="icon-btn" title="Modo Técnico">🔧</button>
+            </div>
+        </div>
+        <div class="container search-wrapper">
+            <input type="text" id="searchBar" placeholder="🔍 Digite o problema: TV, Lento, Instagram, Banco...">
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="tool-card main-tool">
+            <div class="card-header">
+                <h2>📉 Diagnóstico de Potência (Rx)</h2>
+            </div>
+            <div class="signal-checker">
+                <input type="number" id="dbmInput" placeholder="Ex: -22.5" step="0.1">
+                <button id="btnCheckSignal">Verificar Status</button>
+            </div>
+            <div id="signalResult" class="result-box hidden"></div>
+            <small class="tech-info advanced-only">Dica: Sinais muito fortes (ex: -8 dBm) podem saturar a ONU.</small>
+        </section>
+
+        <section class="tool-card">
+            <div class="card-header">
+                <h2>🌍 Status de Serviços (Downdetector)</h2>
+            </div>
+            <div class="card-body">
+                <p class="card-desc">Se apenas um app não funciona, verifique se há instabilidade global antes de abrir chamado técnico.</p>
+                <div class="services-grid">
+                    <a href="https://downdetector.com.br/fora-do-ar/whatsapp/" target="_blank" rel="noopener noreferrer" class="service-btn">
+                        📱 WhatsApp
+                    </a>
+                    <a href="https://downdetector.com.br/fora-do-ar/instagram/" target="_blank" rel="noopener noreferrer" class="service-btn">
+                        📸 Instagram
+                    </a>
+                    <a href="https://downdetector.com.br/fora-do-ar/discord/" target="_blank" rel="noopener noreferrer" class="service-btn">
+                        🎮 Discord
+                    </a>
+                    <a href="https://downdetector.com.br/fora-do-ar/netflix/" target="_blank" rel="noopener noreferrer" class="service-btn">
+                        🎬 Netflix
+                    </a>
+                    <a href="https://downdetector.com.br/fora-do-ar/roblox/" target="_blank" rel="noopener noreferrer" class="service-btn">
+                        🧱 Roblox
+                    </a>
+                    <a href="https://downdetector.com.br/" target="_blank" rel="noopener noreferrer" class="service-btn full-width">
+                        🔍 Ver Geral (Downdetector)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <article class="topic" data-keywords="tv netflix youtube iptv travar lista smartv">
+            <div class="topic-header">
+                <h3>📺 TV / Netflix / IPTV Travando</h3>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="topic-content">
+                <div class="warning-box">
+                    <strong>Fato:</strong> 90% dos casos é TV longe do roteador ou IPTV pirata.
+                </div>
+                <h4>Checklist:</h4>
+                <ul class="checklist">
+                    <li>TV está no cabo? (Wi-Fi de TV costuma ser fraco).</li>
+                    <li>Está no 5GHz? (2.4GHz sofre muita interferência).</li>
+                    <li>O YouTube roda liso? (Se sim, é o servidor do IPTV).</li>
+                </ul>
+                <div class="script-box">
+                    <p><strong>Script "Anti-Conflito":</strong></p>
+                    <p id="txtTv">"Vamos fazer um teste rápido: o travamento acontece também no YouTube ou Netflix? Se for apenas no aplicativo de canais, geralmente é uma instabilidade do servidor do próprio aplicativo, e não da conexão."</p>
+                    <button class="copy-btn" data-target="txtTv">📋 Copiar</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="topic" data-keywords="facebook instagram whatsapp lento imagem meta">
+            <div class="topic-header">
+                <h3>🚫 Só Facebook/Instagram Lento</h3>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="topic-content">
+                <p>Speedtest normal, mas cliente reclama de fotos/vídeos no Insta.</p>
+                <ul class="checklist">
+                    <li>Testar sites leves (UOL, Globo) para comparar.</li>
+                    <li>Alterar DNS (1.1.1.1 ou 8.8.8.8).</li>
+                    <li>Limpar cache do aplicativo.</li>
+                </ul>
+                <div class="script-box">
+                    <p><strong>Script:</strong></p>
+                    <p id="txtSocial">"Se a lentidão ocorre apenas em um aplicativo específico e o restante navega normal, isso indica instabilidade nos servidores deles. Vamos alterar o DNS para tentar uma rota alternativa."</p>
+                    <button class="copy-btn" data-target="txtSocial">📋 Copiar</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="topic" data-keywords="repetidor extensor wifi fraco tp-link mercusys">
+            <div class="topic-header">
+                <h3>📡 Repetidor / Extensor (O vilão)</h3>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="topic-content">
+                <div class="warning-box">
+                    <strong>Atenção:</strong> Repetidor reduz a velocidade pela metade e aumenta o Ping.
+                </div>
+                <ul class="checklist">
+                    <li>Verificar se cliente está no repetidor ou roteador principal.</li>
+                    <li>Recomendar Mesh ou Cabo.</li>
+                </ul>
+                <div class="script-box">
+                    <p><strong>Script Educativo:</strong></p>
+                    <p id="txtRepetidor">"O repetidor ajuda no alcance, mas por limitação técnica ele reduz a velocidade. Para jogos ou trabalho, o ideal é conectar direto no roteador principal ou via cabo."</p>
+                    <button class="copy-btn" data-target="txtRepetidor">📋 Copiar</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="topic" data-keywords="notebook pc computador nao conecta celular funciona">
+            <div class="topic-header">
+                <h3>💻 Só um dispositivo não conecta</h3>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="topic-content">
+                <p>Celular navega, notebook diz "Sem Internet".</p>
+                <ul class="checklist">
+                    <li>Esquecer a rede e reconectar.</li>
+                    <li>CMD: <code>ipconfig /renew</code>.</li>
+                    <li>Verificar IP fixo na placa de rede.</li>
+                </ul>
+                <div class="script-box">
+                    <p><strong>Script:</strong></p>
+                    <p id="txtDevice">"Como os outros aparelhos funcionam, o sinal está chegando. O problema está isolado na configuração deste dispositivo. Vamos tentar redefinir a conexão dele."</p>
+                    <button class="copy-btn" data-target="txtDevice">📋 Copiar</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="topic" data-keywords="banco site nao abre caixa itau bradesco gov">
+            <div class="topic-header">
+                <h3>🔒 Site Específico / Banco não abre</h3>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="topic-content">
+                <p>Geralmente rota, DNS ou plugin de segurança (Warsaw).</p>
+                <ul class="checklist">
+                    <li>Trocar DNS.</li>
+                    <li>Limpar Cache (CTRL+F5).</li>
+                    <li>Testar aba anônima.</li>
+                </ul>
+                <div class="script-box">
+                    <p><strong>Script:</strong></p>
+                    <p id="txtSite">"Se apenas esse site não abre, pode ser uma questão de rota ou cache. Vamos limpar os dados de navegação e testar um DNS diferente."</p>
+                    <button class="copy-btn" data-target="txtSite">📋 Copiar</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="topic" data-keywords="100mb fast ethernet cabo rede giga">
+            <div class="topic-header"><h3>⚠️ Travado em 100Mb (Fast Ethernet)</h3><span class="arrow">▼</span></div>
+            <div class="topic-content">
+                <p>Cabo ruim (CAT5) ou placa antiga.</p>
+                <button class="copy-btn" data-target="txtFast">📋 Script 100Mb</button>
+                <p id="txtFast" class="hidden">"Verifiquei que a conexão chega, mas o dispositivo limita em 100Mb. Isso ocorre por limitação do cabo de rede ou da placa do computador."</p>
+            </div>
+        </article>
+
+        <article class="topic" data-keywords="jogo nat cgnat ping lag">
+            <div class="topic-header"><h3>🎮 Games, NAT e CGNAT</h3><span class="arrow">▼</span></div>
+            <div class="topic-content">
+                <p>Verificar IP 100.64.x.x (CGNAT). Gamers devem usar cabo.</p>
+                <button class="copy-btn" data-target="txtGamer">📋 Script Gamer</button>
+                <p id="txtGamer" class="hidden">"Para jogos, a estabilidade (ping) é prioridade. Vou verificar se seu IP está em CGNAT e se o UPnP está ativo."</p>
+            </div>
+        </article>
+
+    </main>
+    
+    <footer>
+        <p>Desenvolvido para Suporte ISP • Feito por Matheus Huank</p>
+    </footer>
+</body>
+</html>
